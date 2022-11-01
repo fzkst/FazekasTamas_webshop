@@ -1,0 +1,13 @@
+body{
+    background-color: bisque;
+}
+
+.card{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}

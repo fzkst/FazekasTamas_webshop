@@ -2,5 +2,5 @@
 require_once "models/TermekModel.php";
 $termek_model = new TermekModel();
 $termekek = $termek_model->select_all();
-include "views/termek_lista.php";
+include "views/fo_oldal.php";
 ?>

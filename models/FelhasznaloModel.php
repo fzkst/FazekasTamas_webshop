@@ -1,15 +1,15 @@
 <?php
 require_once "models/_adatbazis.php";
 class FelhasznaloModell extends Adatbazis{
-    public function regisztracio($felhasznalonev, $email, $jelszo){
-        $sql = "INSERT INTO felhasznaloteszt(felhasznalo_nev, email, password) VALUES (?,?,?)";
+    public function regisztracio($felhasznalonev, $email, $jelszo, $teljes_nev, $szuletesi_datum, $iranyito_szam, $varos, $cim){
+        $sql = "INSERT INTO felhasznalo(felhasznalo_nev, email, password, teljes_nev, szuletesi_datum, iranyito_szam, varos, cim) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $hash = password_hash($jelszo, PASSWORD_DEFAULT);    
-        $stmt->bind_param("sss", $felhasznalonev, $email, $hash);
+        $stmt->bind_param("sssssiss", $felhasznalonev, $email, $hash, $teljes_nev, $szuletesi_datum, $iranyito_szam, $varos, $cim);
         $stmt->execute();
     }
     public function bejelentkezes($felhasznalonev, $jelszo){
-        $sql = "SELECT * FROM felhasznaloteszt WHERE felhasznalo_nev = ?";
+        $sql = "SELECT * FROM felhasznalo WHERE felhasznalo_nev = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $felhasznalonev);
         $stmt->execute();

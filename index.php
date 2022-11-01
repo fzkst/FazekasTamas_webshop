@@ -3,7 +3,7 @@ session_start();
 $controller = "";
 $oldal = "termekek_lista";
 if (!isset($_GET['oldal'])){
-    $controller = "controllers/termekek_lista.php";
+    $controller = "controllers/fo_oldal.php";
 } else {
     $oldal = $_GET['oldal'];
     if (file_exists("controllers/$oldal.php")){
