@@ -1,4 +1,4 @@
-<div class="row mt-3 ">
+<div class="row mt-3 mx-auto ">
     <?php foreach ($termekek as $termek) : ?>
         <?php
         $nev = $termek['nev'];       

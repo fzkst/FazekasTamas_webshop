@@ -1,3 +1,4 @@
+<script src="/util/validalas.js"></script>
 <?php
 if (isset($_SESSION['felhasznalo'])){
     header("Location: /");
