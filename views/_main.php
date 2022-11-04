@@ -46,7 +46,7 @@
                             <a class="nav-link" id="nav_bejelentkezes" href="?oldal=bejelentkezes">Bejelentkezés</a>
                         </li>
                     <?php else : ?>    
-                        <li class="nav-item">
+                        <li class="nav-item">                            
                             <a class="nav-link" id="nav_kijelentkezes" href="?oldal=kijelentkezes">Kijelentkezés</a>
                         </li>
                     <?php endif; ?>

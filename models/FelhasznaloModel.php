@@ -15,14 +15,32 @@ class FelhasznaloModell extends Adatbazis{
         $stmt->execute();
         $result = $stmt->get_result();     
         
+        $sql2 = "SELECT * FROM felhasznalo WHERE email = ?";
+        $stmt = $this->conn->prepare($sql2);
+        $stmt->bind_param("s", $felhasznalonev);
+        $stmt->execute();
+        $result2 = $stmt->get_result();     
+        
         $felhasznalo = false;
         if ($result->num_rows == 1){
             $sor = $result->fetch_assoc();
             if (password_verify($jelszo, $sor['password'])){
                 $felhasznalo = $sor;
             }            
+        } elseif ($result2->num_rows == 1){
+            $sor = $result2->fetch_assoc();
+            if (password_verify($jelszo, $sor['password'])){
+                $felhasznalo = $sor;
+            }   
         }
         return $felhasznalo;
+    }
+    
+
+    public function select_all(){
+        $sql = "SELECT * FROM felhasznalo";
+        $result = $this->conn->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>

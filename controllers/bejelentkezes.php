@@ -7,8 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $jelszo = $_POST['jelszo'];
     require_once "models/FelhasznaloModel.php";
     $model = new FelhasznaloModell();
+    $hiba = "";
     $felhasznalo = $model->bejelentkezes($felhasznalonev, $jelszo);
-   
+    if (empty($felhasznalonev)){
+        $hiba .= "Felhasználó név megadása kötelező!";
+    }
+    if (empty($jelszo)){
+        $hiba .= "Jelszó megadása kötelező!";
+    }
     if ($felhasznalo){
         unset($felhasznalo['password']);
         $_SESSION['felhasznalo'] = $felhasznalo;
