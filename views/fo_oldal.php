@@ -1,9 +1,10 @@
 <div class="row mt-3 mx-auto ">
     <?php foreach ($termekek as $termek) : ?>
         <?php
+        header("Content-Type: text/html; charset=UTF-8");
         $nev = $termek['nev'];       
-        $uj_nev =  utf8_decode($nev);
-        $uj_nev =  utf8_encode($nev);
+        $uj_nev = utf8_decode($nev); //valami gáz van a gépemen a php-val, és nem jól jelennek meg bizonyos karakterek, ezért próbáltam
+        $uj_nev = utf8_encode($nev); //meg ezekkel bűvészkedni, bár így sem lett tökéletes. :/
 
         $leiras = $termek['leiras'];       
         $uj_leiras =  utf8_decode($leiras);
